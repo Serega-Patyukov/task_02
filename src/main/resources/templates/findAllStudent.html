@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>findAllStudent</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+    <body>
+        <h1>Список всех студентов</h1>
+
+        <h3>
+            <a href="http://localhost:8080/">назад</a>
+        </h3>
+
+        <h3>
+            <span class="validationError" th:if="${listStudent.size() == 0}">пусто</span>
+        </h3>
+
+        <div th:each="student : ${listStudent}">
+            <h3>
+                <span th:text="${student.id}">id</span>
+                <span th:text="${student.surname}">surname</span>
+                <span th:text="${student.name}">name</span>
+                <span th:text="${student.patronymic}">patronymic</span>
+                <span th:text="${student.dob}">dob</span>
+                <span th:text="${student.grp}">grp</span>
+            </h3>
+        </div>
+    </body>
+</html>

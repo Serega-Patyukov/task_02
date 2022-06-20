@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>createStudent</title>
+        <link rel="stylesheet" th:href="@{/styles.css}" />
+    </head>
+
+    <body>
+        <h1>Добавление студента в БД</h1>
+
+        <h3>
+            <a href="http://localhost:8080/">назад</a>
+        </h3>
+
+        <form method="post" th:object="${student}">
+            <div>
+
+                <div>
+                    <label for="surname">Фамилия: </label>
+                    <input type="text" th:field="*{surname}">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('surname')}"
+                          th:errors="*{surname}">surname
+                    </span>
+                </div>
+
+                <div>
+                    <label for="name">Имя: </label>
+                    <input type="text" th:field="*{name}">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('name')}"
+                          th:errors="*{name}">name
+                    </span>
+                </div>
+
+                <div>
+                    <label for="patronymic">Отчество: </label>
+                    <input type="text" th:field="*{patronymic}">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('patronymic')}"
+                          th:errors="*{patronymic}">patronymic
+                    </span>
+                </div>
+
+                <div>
+                    <label for="dob">Дата рождения: </label>
+                    <input type="text" th:field="*{dob}">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('dob')}"
+                          th:errors="*{dob}">dob
+                    </span>
+                </div>
+
+                <div>
+                    <label for="grp">Группа: </label>
+                    <input type="text" th:field="*{grp}">
+                    <span class="validationError"
+                          th:if="${#fields.hasErrors('grp')}"
+                          th:errors="*{grp}">grp
+                    </span>
+                </div>
+
+            </div>
+
+            <br>
+
+            <div>
+                <button>добавить</button>
+            </div>
+        </form>
+    </body>
+</html>
